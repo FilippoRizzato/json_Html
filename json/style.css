@@ -1,0 +1,160 @@
+/* Stile generale */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    margin: 0;
+    padding: 0;
+}
+
+/* Titolo principale */
+h1 {
+    color: #2c3e50;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 2.5rem;
+}
+
+/* Navbar personalizzata */
+nav.custom-navbar {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav.custom-navbar .nav-link {
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav.custom-navbar .nav-link:hover {
+    background-color: #cce5ff;
+    color: #0056b3;
+    border-radius: 8px;
+}
+
+nav.custom-navbar .nav-link.disabled {
+    color: #ccc;
+}
+
+/* Contenitore centrale */
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Paragrafi */
+p {
+    font-size: 1.1rem;
+    color: #34495e;
+    line-height: 1.6;
+}
+
+/* Immagini */
+/*img {
+    border: 3px solid #007bff;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}*/
+
+img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Effetti aggiuntivi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulsanti opzionali */
+button {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 4px #2575fc;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Il body deve occupare l'intera altezza della finestra */
+    margin: 0; /* Rimuove il margine di default */
+}
+
+.container.mt-4 {
+    flex-grow: 1; /* Consente alla container di espandersi e occupare lo spazio disponibile */
+    overflow-y: auto; /* Permette lo scrolling verticale se il contenuto è troppo grande */
+}
+
+footer {
+    margin-top: auto; /* Spinge il footer verso il basso */
+    background-color: #343a40; /* Aggiungi un colore di sfondo per il footer */
+}
+.custom-carousel img {
+    object-fit: cover;
+    height: 400px;
+}
+.section-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.section-content .left-column {
+    width: 48%;
+}
+.section-content .right-column {
+    width: 48%;
+}
+.carousel-item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+body {
+    background-color: #f8f9fa;
+}
+.glossary-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.glossary-title {
+    font-weight: bold;
+    color: #007bff;
+}
+
+ #manualSlideshow img {
+     width: 800px; /* Imposta la larghezza desiderata */
+     height: 400px; /* Imposta l'altezza desiderata */
+     object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+ }

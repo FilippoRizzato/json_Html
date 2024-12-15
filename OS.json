@@ -1,0 +1,46 @@
+{
+  "header": {
+    "title": "Il Modello OSI (Open Systems Interconnection)"
+  },
+  "navbar": {
+    "links": [
+      { "text": "Cosa sono le Socket?", "href": "pag_Sock.html" },
+      { "text": "Architettura Client Server", "href": "Cli_Sev.html" },
+      { "text": "Spiegazione del modello OSI", "href": "OSI.html" },
+      { "text": "Glossario", "href": "glossario.html" },
+      { "text": "Home Page", "href": "home_Page.html" }
+    ]
+  },
+  "content": {
+    "sections": [
+      {
+        "title": "Cos'è il Modello OSI?",
+        "paragraphs": [
+          "Il modello OSI (Open Systems Interconnection) è un modello di riferimento a 7 livelli che descrive i vari strati della comunicazione in una rete di computer. Ogni livello ha funzioni specifiche e si interfaccia con i livelli superiori e inferiori per gestire la trasmissione dei dati.",
+          "Il modello è stato creato per standardizzare le comunicazioni tra i sistemi di rete, consentendo ai dispositivi e software di interagire in modo prevedibile e strutturato. I 7 livelli del modello OSI sono:"
+        ],
+        "list": [
+          "Livello 1: Fisico - Gestisce la trasmissione dei dati attraverso i media fisici.",
+          "Livello 2: Data Link - Gestisce l'accesso al mezzo e la correzione degli errori.",
+          "Livello 3: Rete - Gestisce l'instradamento dei pacchetti tra le reti.",
+          "Livello 4: Trasporto - Garantisce una trasmissione affidabile dei dati.",
+          "Livello 5: Sessione - Gestisce le sessioni di comunicazione tra applicazioni.",
+          "Livello 6: Presentazione - Si occupa della sintassi dei dati e della codifica.",
+          "Livello 7: Applicazione - Fornisce servizi di rete direttamente agli utenti finali."
+        ]
+      },
+      {
+        "title": "Immagine Rappresentativa del Modello OSI",
+        "image": {
+          "src": "https://www.areanetworking.it/wp-content/uploads/2008/06/img8_l3ws_osi3.png",
+          "alt": "Diagramma del Modello OSI"
+        },
+        "caption": "Diagramma che rappresenta i 7 livelli del modello OSI."
+      }
+    ]
+  },
+  "footer": {
+    "text": "2024 Introduzione al Modello OSI. All Rights Reserved.",
+    "author": "Realizzato da Rizzato Filippo"
+  }
+}

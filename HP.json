@@ -1,0 +1,98 @@
+{
+    "html": {
+      "lang": "en",
+      "head": {
+        "meta": [
+          { "charset": "UTF-8" },
+          { "name": "viewport", "content": "width=device-width, initial-scale=1.0" }
+        ],
+        "link": [
+          { "rel": "stylesheet", "href": "style.css" },
+          { "rel": "stylesheet", "href": "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", "integrity": "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC", "crossorigin": "anonymous" }
+        ],
+        "title": "Introduzione alle Socket"
+      },
+      "body": {
+        "header": {
+          "class": "d-flex align-items-center justify-content-center mb-4",
+          "content": [
+            {
+              "type": "img",
+              "src": "Schermata del 2024-12-03 08-32-28.png",
+              "alt": "Logo",
+              "class": "mr-3",
+              "height": "50px",
+              "width": "auto"
+            },
+            {
+              "type": "h1",
+              "text": "Introduzione alle Socket"
+            }
+          ]
+        },
+        "nav": {
+          "class": "navbar navbar-expand-sm custom-navbar",
+          "content": {
+            "ul": {
+              "class": "navbar-nav mx-auto",
+              "li": [
+                { "class": "nav-item", "a": { "class": "nav-link", "href": "pag_Sock.html", "text": "Cosa sono le Socket?" } },
+                { "class": "nav-item", "a": { "class": "nav-link", "href": "Cli_Sev.html", "text": "Architettura Client Server" } },
+                { "class": "nav-item", "a": { "class": "nav-link", "href": "OSI.html", "text": "Spiegazione del modello OSI" } },
+                { "class": "nav-item", "a": { "class": "nav-link", "href": "glossario.html", "text": "Glossario" } },
+                { "class": "nav-item", "a": { "class": "nav-link disabled", "href": "#", "text": "Home Page" } }
+              ]
+            }
+          }
+        },
+        "slideshow": {
+          "container_class": "container mt-4",
+          "content": {
+            "id": "manualSlideshow",
+            "class": "text-center",
+            "img": {
+              "id": "slideshowImage",
+              "src": "https://www.raiscuola.rai.it/dl/img/2021/03/25/1616683561166_1582717587391_technology-1283624_1920.jpg",
+              "class": "img-fluid",
+              "alt": "Slideshow"
+            },
+            "buttons": [
+              { "class": "btn btn-primary", "onclick": "prevImage()", "text": "Precedente" },
+              { "class": "btn btn-primary", "onclick": "nextImage()", "text": "Successivo" }
+            ]
+          }
+        },
+        "content": {
+          "section": {
+            "class": "container",
+            "columns": [
+              {
+                "class": "left-column",
+                "content": [
+                  { "type": "p", "text": "Le socket sono strumenti fondamentali per la comunicazione tra dispositivi in rete. Permettono lo scambio di dati tra applicazioni in esecuzione su host differenti, attraverso il protocollo TCP/IP." },
+                  { "type": "img", "src": "https://teoriadeisegnali.it/appint/html/Images/tipo_socket.jpg", "alt": "Cosa sono le socket?", "class": "img-fluid" }
+                ]
+              },
+              {
+                "class": "right-column",
+                "content": [
+                  { "type": "img", "src": "https://png.pngtree.com/background/20211217/original/pngtree-computer-light-effect-technology-theme-blue-cool-electronic-background-picture-image_1591421.jpg", "alt": "Immagine grande", "class": "img-fluid" }
+                ]
+              }
+            ]
+          }
+        },
+        "footer": {
+          "class": "bg-dark text-white text-center py-4",
+          "content": [
+            { "type": "p", "text": "2024 Introduzione alle Socket. All Rights Reserved." },
+            { "type": "p", "text": "Realizzato da Rizzato Filippo" }
+          ]
+        },
+        "scripts": [
+          { "src": "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", "integrity": "sha384-cVKIPhG81rKrOSn0", "crossorigin": "anonymous" }
+        ]
+      }
+    }
+  }
+  

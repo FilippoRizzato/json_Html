@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Architettura Client-Server</title>
+</head>
+<body>
+
+<!-- Header dinamico da JSON -->
+<div class="container mt-4">
+    <div class="text-center mb-4">
+        <h1 id="page-header"></h1>
+    </div>
+</div>
+
+<!-- Navbar dinamica da JSON -->
+<nav class="navbar navbar-expand-sm custom-navbar">
+    <div class="container-fluid">
+        <ul class="navbar-nav mx-auto" id="navbar-items">
+            <!-- I link di navigazione verranno popolati da JSON -->
+        </ul>
+    </div>
+</nav>
+
+<!-- Corpo principale con i contenuti -->
+<div class="container mt-4">
+
+    <!-- Sezione: Cos'è l'Architettura Client-Server -->
+    <div class="row mb-3" id="section-1">
+        <div class="col-12">
+            <h2 id="section-1-heading"></h2>
+            <p id="section-1-paragraph-1"></p>
+            <p id="section-1-paragraph-2"></p>
+        </div>
+    </div>
+
+    <!-- Sezione: Come le Socket si Collegano all'Architettura Client-Server -->
+    <div class="row mb-3" id="section-2">
+        <div class="col-12">
+            <h3 id="section-2-heading"></h3>
+            <p id="section-2-paragraph-1"></p>
+            <p id="section-2-paragraph-2"></p>
+        </div>
+    </div>
+
+    <!-- Sezione: Esempio di Connessione Client-Server con le Socket -->
+    <div class="row mb-3" id="section-3">
+        <div class="col-12">
+            <h4 id="section-3-heading"></h4>
+            <p id="section-3-paragraph"></p>
+        </div>
+    </div>
+
+    <!-- Sezione: Diagramma di un'Architettura Client-Server -->
+    <div class="row mb-3" id="section-4">
+        <div class="col-12">
+            <h5 id="section-4-heading"></h5>
+            <img id="section-4-image" alt="Diagramma Client-Server" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Footer dinamico da JSON -->
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <p id="footer-content"></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cVKIPhG81rKrOSn0" crossorigin="anonymous"></script>
+
+<script>
+    // Carica il file JSON e inserisci i contenuti nella pagina
+    fetch('CS.json')
+        .then(response => response.json())
+        .then(jsonData => {
+            // Popolare il contenuto dell'header
+            document.getElementById("page-header").textContent = jsonData.body.header.h1;
+
+            // Popolare la barra di navigazione
+            const navbarItems = jsonData.body.navigation.items;
+            const navbarContainer = document.getElementById("navbar-items");
+            navbarItems.forEach(item => {
+                const li = document.createElement("li");
+                li.classList.add("nav-item");
+                const a = document.createElement("a");
+                a.classList.add("nav-link");
+                a.href = item.href;
+                a.textContent = item.text;
+                li.appendChild(a);
+                navbarContainer.appendChild(li);
+            });
+
+            // Popolare la prima sezione
+            const section1 = jsonData.body.content.sections[0];
+            document.getElementById("section-1-heading").textContent = section1.heading;
+            document.getElementById("section-1-paragraph-1").textContent = section1.paragraphs[0];
+            document.getElementById("section-1-paragraph-2").textContent = section1.paragraphs[1];
+
+            // Popolare la seconda sezione
+            const section2 = jsonData.body.content.sections[1];
+            document.getElementById("section-2-heading").textContent = section2.heading;
+            document.getElementById("section-2-paragraph-1").textContent = section2.paragraphs[0];
+            document.getElementById("section-2-paragraph-2").textContent = section2.paragraphs[1];
+
+            // Popolare la terza sezione
+            const section3 = jsonData.body.content.sections[2];
+            document.getElementById("section-3-heading").textContent = section3.heading;
+            document.getElementById("section-3-paragraph").textContent = section3.paragraphs[0];
+
+            // Popolare la quarta sezione
+            const section4 = jsonData.body.content.sections[3];
+            document.getElementById("section-4-heading").textContent = section4.heading;
+            document.getElementById("section-4-image").src = section4.image.src;
+            document.getElementById("section-4-image").alt = section4.image.alt;
+
+            // Popolare il footer
+            const footerContent = jsonData.body.footer.content.join(' | ');
+            document.getElementById("footer-content").textContent = footerContent;
+        });
+</script>
+
+</body>
+</html>

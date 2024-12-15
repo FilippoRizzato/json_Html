@@ -1,0 +1,66 @@
+{
+  "header": {
+    "title": "Glossario dei Termini"
+  },
+  "navbar": {
+    "links": [
+      { "text": "Cosa sono le Socket?", "href": "pag_Sock.html" },
+      { "text": "Architettura Client Server", "href": "Cli_Sev.html" },
+      { "text": "Spiegazione del modello OSI", "href": "OSI.html" },
+      { "text": "Glossario", "href": "glossario.html" },
+      { "text": "Home Page", "href": "home_Page.html" }
+    ]
+  },
+  "content": {
+    "terms": [
+      {
+        "term": "Socket",
+        "definition": "Una socket è un punto finale di una comunicazione tra due programmi in esecuzione su una rete."
+      },
+      {
+        "term": "Client",
+        "definition": "Un client è un programma che richiede servizi da un server."
+      },
+      {
+        "term": "Server",
+        "definition": "Un server è un programma che fornisce servizi a un client."
+      },
+      {
+        "term": "Protocollo",
+        "definition": "Un protocollo è un insieme di regole che definiscono come i dati vengono trasmessi in una rete."
+      },
+      {
+        "term": "Rete",
+        "definition": "Una rete è un insieme di dispositivi connessi tra loro che possono comunicare."
+      },
+      {
+        "term": "Firewall",
+        "definition": "Un firewall è un sistema di sicurezza che controlla il traffico di rete in entrata e in uscita."
+      },
+      {
+        "term": "IP Address",
+        "definition": "Un indirizzo IP è un identificatore univoco per un dispositivo su una rete che utilizza il protocollo Internet."
+      },
+      {
+        "term": "DNS",
+        "definition": "Il Domain Name System (DNS) è un sistema che traduce i nomi di dominio in indirizzi IP."
+      },
+      {
+        "term": "HTTP",
+        "definition": "Hypertext Transfer Protocol (HTTP) è il protocollo utilizzato per la trasmissione di dati sul web."
+      },
+      {
+        "term": "HTTPS",
+        "definition": "Hypertext Transfer Protocol Secure (HTTPS) è una versione sicura di HTTP, che utilizza la crittografia per proteggere i dati."
+      },
+      {
+        "term": "VPN",
+        "definition": "Una Virtual Private Network (VPN) è una tecnologia che crea una connessione sicura e crittografata su una rete meno sicura, come Internet."
+      }
+    ]
+  },
+  "footer": {
+    "text": "2024 Glossario dei Termini. All Rights Reserved.",
+    "author": "Realizzato da Rizzato Filippo"
+  }
+}

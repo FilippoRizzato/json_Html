@@ -1,0 +1,53 @@
+{
+  "body": {
+    "header": {
+      "h1": "Architettura Client-Server e il Ruolo delle Socket"
+    },
+    "navigation": {
+      "items": [
+        { "href": "pag_Sock.html", "text": "Cosa sono le Socket?" },
+        { "href": "Cli_Sev.html", "text": "Architettura Client Server" },
+        { "href": "OSI.html", "text": "Spiegazione del modello OSI" },
+        { "href": "glossario.html", "text": "Glossario" },
+        { "href": "home_Page.html", "text": "Home Page" }
+      ]
+    },
+    "content": {
+      "sections": [
+        {
+          "heading": "Cos'è l'Architettura Client-Server?",
+          "paragraphs": [
+            "L'architettura Client-Server è un modello di rete che prevede una divisione tra il lato client, che invia richieste, e il lato server, che risponde a tali richieste.",
+            "In questo modello, il server è centrale e gestisce molteplici richieste provenienti da diversi client, che possono essere applicazioni desktop, browser web, o altri dispositivi."
+          ]
+        },
+        {
+          "heading": "Come le Socket si Collegano all'Architettura Client-Server",
+          "paragraphs": [
+            "Le socket sono componenti cruciali nell'architettura Client-Server. Ogni socket è identificato da un indirizzo IP e un numero di porta.",
+            "Il server apre una socket sulla sua macchina e ascolta le richieste in arrivo."
+          ]
+        },
+        {
+          "heading": "Esempio di Connessione Client-Server con le Socket",
+          "paragraphs": [
+            "Un esempio classico di connessione client-server avviene utilizzando il protocollo TCP, che fornisce una connessione affidabile."
+          ]
+        },
+        {
+          "heading": "Diagramma di un'Architettura Client-Server",
+          "image": {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Client-server_model.svg",
+            "alt": "Diagramma Client-Server"
+          }
+        }
+      ]
+    },
+    "footer": {
+      "content": [
+        "2024 Introduzione alle Socket. All Rights Reserved.",
+        "Realizzato da Rizzato Filippo"
+      ]
+    }
+  }
+}

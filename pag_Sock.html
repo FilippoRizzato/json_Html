@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Cosa sono le Socket?</title>
+</head>
+<body>
+
+<div id="header-container"></div>
+
+<nav id="navbar-container"></nav>
+
+<div id="content-container"></div>
+
+<footer id="footer-container"></footer>
+
+<script>
+    // Fetch content from JSON file
+    fetch('PS.json')
+        .then(response => response.json())
+        .then(data => {
+            renderHeader(data.html.body.header);
+            renderNavbar(data.html.body.nav);
+            renderContent(data.html.body.content);
+            renderFooter(data.html.body.footer);
+        })
+        .catch(error => console.error('Error loading JSON:', error));
+
+    function renderHeader(headerData) {
+        const headerContainer = document.getElementById('header-container');
+        const headerDiv = document.createElement('div');
+        headerDiv.className = headerData.class;
+
+        headerData.content.forEach(item => {
+            if (item.type === "h1") {
+                const h1Element = document.createElement('h1');
+                h1Element.textContent = item.text;
+                headerDiv.appendChild(h1Element);
+            }
+        });
+
+        headerContainer.appendChild(headerDiv);
+    }
+
+    function renderNavbar(navData) {
+        const navbarContainer = document.getElementById('navbar-container');
+        const navElement = document.createElement('nav');
+        navElement.className = navData.class;
+
+        const ulElement = document.createElement('ul');
+        ulElement.className = navData.content.ul.class;
+        navData.content.ul.li.forEach(item => {
+            const liElement = document.createElement('li');
+            liElement.className = item.class;
+            const aElement = document.createElement('a');
+            aElement.className = item.a.class;
+            aElement.href = item.a.href;
+            aElement.textContent = item.a.text;
+            liElement.appendChild(aElement);
+            ulElement.appendChild(liElement);
+        });
+
+        navElement.appendChild(ulElement);
+        navbarContainer.appendChild(navElement);
+    }
+
+    function renderContent(contentData) {
+        const contentContainer = document.getElementById('content-container');
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = contentData.section.class;
+
+        contentData.section.content.forEach(item => {
+            if (item.type === "p") {
+                const pElement = document.createElement('p');
+                pElement.textContent = item.text;
+                sectionDiv.appendChild(pElement);
+            } else if (item.type === "img") {
+                const imgElement = document.createElement('img');
+                imgElement.src = item.src;
+                imgElement.alt = item.alt;
+                imgElement.className = item.class;
+                sectionDiv.appendChild(imgElement);
+            }
+        });
+
+        contentContainer.appendChild(sectionDiv);
+    }
+
+    function renderFooter(footerData) {
+        const footerContainer = document.getElementById('footer-container');
+        const footerDiv = document.createElement('footer');
+        footerDiv.className = footerData.class;
+
+        footerData.content.forEach(item => {
+            const pElement = document.createElement('p');
+            pElement.textContent = item.text;
+            footerDiv.appendChild(pElement);
+        });
+
+        footerContainer.appendChild(footerDiv);
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cVKIPhG81rKrOSn0H4zYfTw+KkqLR9GPiEglsjRE3S6SpzOF24C1S+KCqs5Iw9Ci" crossorigin="anonymous"></script>
+</body>
+</html>

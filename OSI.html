@@ -28,70 +28,107 @@
 <script>
     // Fetch the content from the JSON file
     fetch('OS.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
-            document.getElementById('header-title').textContent = data.header.title;
+            // Set header title
+            const headerTitle = document.getElementById('header-title');
+            if (headerTitle) {
+                headerTitle.textContent = data.header.title;
+            }
 
+            // Build navbar links
             const navbarLinks = document.getElementById('navbar-links');
+            if (navbarLinks) {
                 data.navbar.links.forEach(link => {
-                const li = document.createElement('li');
-                li.className = 'nav-item';
-                const a = document.createElement('a');
-                a.className = 'nav-link';
-                a.href = link.href;
-                a.textContent = link.text;
-                li.appendChild(a);
-                navbarLinks.appendChild(li);
-            });
-
-            const contentContainer = document.getElementById('content-container');
-            data.content.sections.forEach(section => {
-                const sectionDiv = document.createElement('div');
-                sectionDiv.className = 'row mb-3';
-                const colDiv = document.createElement('div');
-                colDiv.className = 'col-12';
-
-                const sectionTitle = document.createElement('h2');
-                sectionTitle.textContent = section.title;
-                colDiv.appendChild(sectionTitle);
-
-                section.paragraphs.forEach(paragraph => {
-                    const p = document.createElement('p');
-                    p.textContent = paragraph;
-                    colDiv.appendChild(p);
+                    const li = document.createElement('li');
+                    li.className = 'nav-item';
+                    const a = document.createElement('a');
+                    a.className = 'nav-link';
+                    a.href = link.href;
+                    a.textContent = link.text;
+                    li.appendChild(a);
+                    navbarLinks.appendChild(li);
                 });
+            }
 
-                if (section.list) {
-                    const ol = document.createElement('ol');
-                    section.list.forEach(item => {
-                        const li = document.createElement('li');
-                        li.innerHTML = item;
-                        ol.appendChild(li);
+            // Build content sections
+            const contentContainer = document.getElementById('content-container');
+            if (contentContainer) {
+                data.content.sections.forEach(section => {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.className = 'row mb-3';
+                    const colDiv = document.createElement('div');
+                    colDiv.className = 'col-12';
+
+                    // Add section title
+                    const sectionTitle = document.createElement('h2');
+                    sectionTitle.textContent = section.title;
+                    colDiv.appendChild(sectionTitle);
+
+                    // Add paragraphs
+                    section.paragraphs.forEach(paragraph => {
+                        const p = document.createElement('p');
+                        p.textContent = paragraph;
+                        colDiv.appendChild(p);
                     });
-                    colDiv.appendChild(ol);
-                }
 
-                if (section.image) {
-                    const imgDiv = document.createElement('div');
-                    imgDiv.className = 'text-center';
-                    const img = document.createElement('img');
-                    img.src = section.image.src;
-                    img.alt = section.image.alt;
-                    img.className = 'img-fluid shadow-sm';
-                    imgDiv.appendChild(img);
-                    const caption = document.createElement('p');
-                    caption.className = 'mt-2';
-                    caption.textContent = section.caption;
-                    imgDiv.appendChild(caption);
-                    colDiv.appendChild(imgDiv);
-                }
+                    // Add list if present
+                    if (section.list) {
+                        const ol = document.createElement('ol');
+                        section.list.forEach(item => {
+                            const li = document.createElement('li');
+                            li.innerHTML = item;
+                            ol.appendChild(li);
+                        });
+                        colDiv.appendChild(ol);
+                    }
 
-                sectionDiv.appendChild(colDiv);
-                contentContainer.appendChild(sectionDiv);
-            });
+                    // Add image if present
+                    if (section.image) {
+                        const imgDiv = document.createElement('div');
+                        imgDiv.className = 'text-center';
 
-            document.getElementById('footer-text').textContent = data.footer.text;
-            document.getElementById('footer-author').textContent = data.footer.author;
+                        const img = document.createElement('img');
+                        img.src = section.image.src;
+                        img.alt = section.image.alt;
+                        img.className = 'img-fluid shadow-sm';
+
+                        // Handle image loading errors with fallback
+                        img.onerror = function() {
+                            img.src = 'fallback-image.png'; // Use a local fallback image
+                            img.alt = 'Immagine non disponibile';
+                            console.error('Errore nel caricamento dell\'immagine, usando l\'immagine di fallback');
+                        };
+
+                        imgDiv.appendChild(img);
+
+                        const caption = document.createElement('p');
+                        caption.className = 'mt-2';
+                        caption.textContent = section.caption;
+                        imgDiv.appendChild(caption);
+
+                        colDiv.appendChild(imgDiv);
+                    }
+
+                    sectionDiv.appendChild(colDiv);
+                    contentContainer.appendChild(sectionDiv);
+                });
+            }
+
+            // Set footer text and author
+            const footerText = document.getElementById('footer-text');
+            if (footerText) {
+                footerText.textContent = data.footer.text;
+            }
+            const footerAuthor = document.getElementById('footer-author');
+            if (footerAuthor) {
+                footerAuthor.textContent = data.footer.author;
+            }
         })
         .catch(error => console.error('Error loading JSON:', error));
 </script>

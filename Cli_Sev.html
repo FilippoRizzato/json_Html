@@ -57,8 +57,11 @@
     <!-- Sezione: Diagramma di un'Architettura Client-Server -->
     <div class="row mb-3" id="section-4">
         <div class="col-12">
+            <div class="text-center mt-4">
+
             <h5 id="section-4-heading"></h5>
             <img id="section-4-image" alt="Diagramma Client-Server" class="img-fluid">
+            </div>
         </div>
     </div>
 </div>
@@ -109,16 +112,28 @@
             document.getElementById("section-3-heading").textContent = section3.heading;
             document.getElementById("section-3-paragraph").textContent = section3.paragraphs[0];
 
-            // Popolare la quarta sezione
+            // Popolare la quarta sezione (immagine)
             const section4 = jsonData.body.content.sections[3];
             document.getElementById("section-4-heading").textContent = section4.heading;
-            document.getElementById("section-4-image").src = section4.image.src;
-            document.getElementById("section-4-image").alt = section4.image.alt;
+
+            const imgElement = document.getElementById("section-4-image");
+            imgElement.src = section4.image.src;
+            imgElement.alt = section4.image.alt;
+
+            // Verifica se l'immagine è stata caricata correttamente
+            imgElement.onerror = function() {
+                imgElement.src = 'path/to/fallback-image.jpg'; // Fallback image in caso di errore
+                imgElement.alt = 'Immagine non disponibile';
+            };
 
             // Popolare il footer
             const footerContent = jsonData.body.footer.content.join(' | ');
             document.getElementById("footer-content").textContent = footerContent;
+        })
+        .catch(error => {
+            console.error('Errore nel caricamento del JSON:', error);
         });
+
 </script>
 
 </body>
